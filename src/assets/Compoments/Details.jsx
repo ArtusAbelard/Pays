@@ -5,6 +5,7 @@ import { useParams,createBrowserRouter,RouterProvider, } from 'react-router-dom'
 import { useContext } from 'react';
 import { MyContext } from './Body';
 import { ThemeContext } from '../../DataContext'
+import { Link } from 'react-router-dom';
 
 export default function Details(props) {
 
@@ -12,15 +13,17 @@ export default function Details(props) {
     const {data} = useContext(ThemeContext)
     const curencies = Object.values(data[0].currencies)
     console.log(Object.values(data[0].languages));
-    console.log(curencies[0]);
+    console.log(data[56].subregion);
     
     return (
         <div className='w-screen h-screen overflow-hidden bg-[#202D36]'>
             <Navbar></Navbar>
-            <div className='w-full  h-[200px]'></div>
+            <div className='w-full flex items-center ps-28 h-[200px]'>
+            <Link to={`/Home`}><button className="btn mt-5 bg-[#2B3743] hover:text-black text-xl text-white w-[150px]">Back</button></Link>
+            </div>
             <div className='w-full h-[35rem] flex'>
                 <div className='h-full w-1/2 flex justify-center items-center'>
-                    <img className='h-[30rem] w-[45rem]' src={data[id].flags.png} alt="" />
+                    <img className='h-[31rem] w-[45rem]' src={data[id].flags.png} alt="" />
                 </div>
                 <div className='h-full w-1/2 flex flex-col'>
                     <h1 className='text-white h-[8rem] pt-16 text-3xl font-bold ps-6'>{data[id].name.common}</h1>   
@@ -30,7 +33,7 @@ export default function Details(props) {
                                 <li>Native Name : {data[id].name.official}</li>
                                 <li>Population : {data[id].population}</li>
                                 <li>Region : {data[id].region}</li>
-                                <li>Sub Region :</li>
+                                <li>Sub Region : {data[id].subregion}</li>
                                 <li>Capital : {data[id].capital}</li>
                             </ul>
                         </div>

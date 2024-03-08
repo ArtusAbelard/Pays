@@ -10,7 +10,9 @@ export default function Details(props) {
 
     const {id} = useParams()
     const {data} = useContext(ThemeContext)
+    const curencies = Object.values(data[0].currencies)
     console.log(Object.values(data[0].languages));
+    console.log(curencies[0]);
     
     return (
         <div className='w-screen h-screen overflow-hidden bg-[#202D36]'>
@@ -35,8 +37,7 @@ export default function Details(props) {
                         <div className='h-full w-1/2'>
                             <ul className='ps-6 gap-3 text-white h-full w-full flex flex-col text-xl justify-start pt-5 items-start ps-28'>
                                 <li>Top Level Domain : {data[id].tld[0]}</li>
-                                <li>Currencies : {""}</li>
-                                
+                                <li>Currencies : {curencies[0].name}</li>
                                 <li className='flex'>Languages : {Object.values(data[id].languages).map((Element,id)=>{
                                     return(
                                         <li> &nbsp;{ Element},</li>

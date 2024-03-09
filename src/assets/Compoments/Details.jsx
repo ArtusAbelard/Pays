@@ -11,15 +11,17 @@ export default function Details(props) {
 
     const {id} = useParams()
     const {data} = useContext(ThemeContext)
-    const curencies = Object.values(data[0].currencies)
-    console.log(Object.values(data[0].languages));
-    console.log(data[56].subregion);
+    const curencies = Object.values(data[id].currencies)
+    const native = Object.values(data[id].name.nativeName)
+    // console.log(Object.values(data[0].languages));
+    console.log(native[0].official);
+
     
     return (
         <div className='w-screen h-screen overflow-hidden bg-[#202D36]'>
             <Navbar></Navbar>
             <div className='w-full flex items-center ps-28 h-[200px]'>
-            <Link to={`/Home`}><button className="btn mt-5 bg-[#2B3743] hover:text-black text-xl text-white w-[150px]">Back</button></Link>
+            <Link to={`/Home/`}><button className="btn mt-5 bg-[#2B3743] hover:text-black text-xl text-white w-[150px]">Back</button></Link>
             </div>
             <div className='w-full h-[35rem] flex'>
                 <div className='h-full w-1/2 flex justify-center items-center'>
@@ -30,7 +32,7 @@ export default function Details(props) {
                     <div className=' w-full flex h-2/5'>
                         <div className='h-full w-1/3 '>
                             <ul className='ps-6 gap-3 text-white h-full w-full flex flex-col text-xl justify-center items-start'>
-                                <li>Native Name : {data[id].name.official}</li>
+                                <li>Native Name : {native[0].official}</li>
                                 <li>Population : {data[id].population}</li>
                                 <li>Region : {data[id].region}</li>
                                 <li>Sub Region : {data[id].subregion}</li>
@@ -56,3 +58,4 @@ export default function Details(props) {
         </div>
     )
 }
+// native[id]?native[0].official:""

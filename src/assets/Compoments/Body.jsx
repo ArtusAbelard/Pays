@@ -13,10 +13,12 @@ export default function Body(props) {
     const [shear, setshear] = useState("")
     // const [data, setData] = useState([]);
     // const [record, setrecord] = useState(data)
-    const {data,darkMode,setdarkMode} = useContext(ThemeContext)
+    const {data,darkMode,record,setrecord} = useContext(ThemeContext)
     // console.log(darkMode);
      
-    
+    useEffect(() => {
+        setrecord(record)
+    }, [])
     // console.log(shear);
     // useEffect(() => {
     //     fetch('https://restcountries.com/v3.1/all')

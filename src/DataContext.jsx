@@ -7,7 +7,7 @@ const ThemeProvider = ( { children }) =>{
     const [data, setdata] = useState([]);
     const [darkMode, setdarkMode] = useState(false)    
     const [record, setrecord] = useState([]) 
-    const [filterbtn, setfilterbtn] = useState("")
+    const [filterbtn, setfilterbtn] = useState()
     
     useEffect(() => { 
         fetch('https://restcountries.com/v3.1/all')         

@@ -3,31 +3,26 @@ import { useState,useEffect } from 'react';
 import { createBrowserRouter , RouterProvider , Link } from 'react-router-dom'
 import { MyContext } from './Body';
 import { ThemeContext } from '../../DataContext';
+import { useParams } from 'react-router-dom';
 
 
 
 export default function Cards(props) {
+    
     
     const [data,shear]=useContext(MyContext)
     const {darkMode,record,setrecord,filterbtn, setfilterbtn} = useContext(ThemeContext)
     // const [record, setrecord] = useState(data)
     // console.log(shear);
     useEffect(() => {
-        // console.log(record);
-        // setrecord(data)
+       
         Filter()
-        
-        
-        // console.log(data);
     }, [shear])
     useEffect(() => {
-        // console.log(record);
-        // setrecord(data)
+        
         Filterbtn()
-        
-        
-        // console.log(data);
     }, [filterbtn])
+    
     
     const Filter = (event) => {
         setrecord(data.filter(f => f.name.common.toLowerCase().includes(shear) ))
@@ -35,9 +30,9 @@ export default function Cards(props) {
     }
     const Filterbtn = (event) => {
         
-        setrecord(data.filter((data) => data.region.toLowerCase()==filterbtn))
+        setrecord(data.filter((d) => d.region.toLowerCase()===filterbtn))
     }
-    // console.log(data[1].region);
+  
     console.log(filterbtn);
     
 

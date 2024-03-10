@@ -1,15 +1,13 @@
 import React, { useContext } from 'react'
 import { useState,useEffect } from 'react';
-import { createBrowserRouter , RouterProvider , Link } from 'react-router-dom'
+import {Link } from 'react-router-dom'
 import { MyContext } from './Body';
 import { ThemeContext } from '../../DataContext';
-import { useParams } from 'react-router-dom';
 
 export default function Cards(props) {
     
-    const {id} = useParams()
     const [data,shear]=useContext(MyContext)
-    const {darkMode,record,setrecord,filterbtn, setfilterbtn} = useContext(ThemeContext)
+    const {darkMode,record,setrecord,filterbtn} = useContext(ThemeContext)
     
     useEffect(() => {
         Filter()
@@ -19,15 +17,17 @@ export default function Cards(props) {
     }, [filterbtn])
     
     const Filter = (event) => {
-        setrecord(data.filter(f => f.name.common.toLowerCase().includes(shear) )) 
+        setrecord(data.filter(f => f.name.common.toLowerCase().includes(shear) ))
+        
     }
     const Filterbtn = (event) => {
         setrecord(data.filter((d) => d.region.toLowerCase()===filterbtn))
+        
     }
     const chercherIndex = (element) => {
         const i = data.findIndex((x) => x.name.common === element.name.common);
         return i;
-      };
+    };
     
     return (
         <div className='gap-16 flex flex-wrap items-center justify-center'>

@@ -6,7 +6,7 @@ import { ThemeContext } from '../../DataContext';
 
 export default function Header(props) {
     
-    const [shear,setshear]=useContext(MyContext)
+    const [data,shear,setshear]=useContext(MyContext)
     const {darkMode, setfilterbtn} = useContext(ThemeContext)
     
     return (

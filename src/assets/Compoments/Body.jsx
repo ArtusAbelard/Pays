@@ -16,7 +16,7 @@ export default function Body(props) {
     const {data,darkMode,setdarkMode} = useContext(ThemeContext)
     // console.log(darkMode);
      
-    console.log(darkMode);
+    
     // console.log(shear);
     // useEffect(() => {
     //     fetch('https://restcountries.com/v3.1/all')

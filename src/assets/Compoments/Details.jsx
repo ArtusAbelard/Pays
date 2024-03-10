@@ -7,21 +7,46 @@ import { MyContext } from './Body';
 import { ThemeContext } from '../../DataContext'
 import { Link } from 'react-router-dom';
 
+
 export default function Details(props) {
 
     const {id} = useParams()
     const {data,darkMode,setdarkMode} = useContext(ThemeContext)
     const curencies = Object.values(data[id].currencies)
     const native = Object.values(data[id].name.nativeName)
+    const [idBorders, setidBorders] = useState([])
+   
+    let nextId = 0;
+    
     // console.log(Object.values(data[0].languages));
+    console.log(data[136]);
+    console.log(data[165].fifa);
+    console.log(data[57].borders);
     
+    function cible(params) {
+        for (let index = 0; index < data.length; index++) {
+            for (let i = 0; i < data[id].borders.length; i++) {
+                if (data[index].fifa==data[id].borders[i]) {
+                    console.log(index);
+                    //     setidBorders([
+                    //         ...idBorders,
+                    //         {id: data[id].borders[i]++,name:index}
+                    // ])
+                    
+                    console.log(idBorders);   
+                }  
+            }
+        }
+    }
+    if (data[id].borders) {
+        cible()   
+    }
 
-    
     return (
         <div className={`w-screen h-screen overflow-hidden bg-[#202D36] ${darkMode?"text-white bg-[#2B3743]":"text-black bg-[#f5f5f5]"}`}>
             <Navbar></Navbar>
             <div className='w-full flex items-center ps-28 h-[200px]'>
-            <Link to={`/Home/`}><button className={`btn mt-5 bg-[#2B3743] hover:text-black text-xl text-white w-[150px] ${darkMode?"text-white bg-[#2B3743]":"text-black bg-white"}`}>Back</button></Link>
+            <Link to={`/Home/`}><button className={`btn mt-5  hover:text-black text-xl text-white w-[150px] ${darkMode?"text-white bg-[#2B3743]":"text-black bg-white"}`}>Back</button></Link>
             </div>
             <div className='w-full h-[35rem] flex'>
                 <div className='h-full w-1/2 flex justify-center items-center'>
@@ -45,17 +70,31 @@ export default function Details(props) {
                                 <li>Currencies : {curencies[0].name}</li>
                                 <li className='flex'>Languages : {Object.values(data[id].languages).map((Element,id)=>{
                                     return(
-                                        <li> &nbsp;{ Element},</li>
+                                        <p key={id}> &nbsp;{ Element},</p>
                                     )
                                 })}</li>
-                               
                             </ul>
                         </div>
                     </div>
-                    <div className='h-[10rem] bg-slate-400'></div>
+                    {
+                        data[id].borders?
+                        <div className='h-[10rem]  flex items-center ps-6'>
+                            <h5 className={`text-xl`}>Border Countries :</h5>
+                            <div className='ms-8 gap-5 flex justify-around  flex-wrap w-[420px] '>
+                                {
+                                    data[id].borders.map((Element,Index)=>{
+                                        
+                                        return(
+                                            <button key={Index} className={`btn h-[35px] min-h-0 w-[120px] ${darkMode?"text-white bg-[#2B3743] hover:text-black":"text-black bg-white "}`}>{Element}</button>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                        :""
+                    }
                 </div>
             </div>  
         </div>
     )
 }
-// native[id]?native[0].official:""

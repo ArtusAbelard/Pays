@@ -15,12 +15,12 @@ export default function Cards(props) {
     // }
     
     return (
-        <div className=' gap-16 flex flex-wrap items-center justify-center'>
+        <div className='gap-16 flex flex-wrap items-center justify-center'>
             {
                 data.map((Element,id)=>{
                     return(
-                        <div className="card w-96  shadow-xl rounded-xl overflow-hidden">
-                            <Link to={`/Details/${id}`}><figure className='h-[15rem]'><img className='w-full h-[18rem] pt-5' src={data[id].flags.png} alt="Flag" /></figure></Link>
+                        <div key={id} className="card w-96  shadow-xl rounded-xl overflow-hidden">
+                            <Link to={`/Details/${id}`}><figure className='h-[15rem] '><img className='w-full h-[15rem] pt-5' src={data[id].flags.png} alt="Flag" /></figure></Link>
                             <div className={`card-body ${darkMode?"text-white bg-[#2B3743]":"text-black bg-[#FFFFFF]"}`}>
                                 <h2 className="card-title text-2xl">{data[id].name.common}</h2>
                                 <p className=' text-xl'>Population : {data[id].population}</p>

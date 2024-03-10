@@ -5,7 +5,8 @@ const DataContextone = createContext();
 const ThemeProvider = ( { children }) =>{      
        
     const [data, setdata] = useState([]);
-    const [darkMode, setdarkMode] = useState(false)     
+    const [darkMode, setdarkMode] = useState(false)    
+    const [record, setrecord] = useState([]) 
     
     useEffect(() => { 
         fetch('https://restcountries.com/v3.1/all')         
@@ -13,12 +14,13 @@ const ThemeProvider = ( { children }) =>{
         return res.json();         
         })         
         .then((data) => {                    
-        setdata(data);        
+        setdata(data)
+        setrecord(data);        
         });       }, []);     
                  
      
      return (                  
-    <ThemeContext.Provider value={{data,darkMode,setdarkMode}} >             
+    <ThemeContext.Provider value={{data,darkMode,setdarkMode,record,setrecord}} >             
         {children}          
     </ThemeContext.Provider>)}  
     

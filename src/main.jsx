@@ -14,7 +14,7 @@ import { ThemeProvider } from "./DataContext"
 const router = createBrowserRouter([
   
   {
-    path: "/Home",
+    path: "/Pays",
     element: <Body ></Body>,
     errorElement: Error()
     

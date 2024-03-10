@@ -9,6 +9,7 @@ export default function Header(props) {
     const [data,shear,setshear]=useContext(MyContext)
     const {darkMode,setdarkMode} = useContext(ThemeContext)
     
+    
     return (
         <div className='w-full h-[200px] flex justify-between '>
                 <div className=' ms-12 w-[40rem] flex justify-center items-center'>

@@ -19,9 +19,6 @@ export default function Details(props) {
     let nextId = 0;
     let idBorders = []
     
-    // console.log(Object.values(data[0].languages));
-   
-    
     function cible(params) {
         for (let index = 0; index < data.length; index++) {
             for (let i = 0; i < data[id].borders.length; i++) {
@@ -31,10 +28,7 @@ export default function Details(props) {
                     //         ...idBorders,
                     //         {id: data[id].borders[i]++,name:index}
                     // ])
-                    idBorders.push(index)
-                    
-                    
-                    // console.log(idBorders);   
+                    idBorders.push(index)  
                 }  
             }
         }
@@ -47,7 +41,7 @@ export default function Details(props) {
         <div className={`w-screen h-screen overflow-hidden bg-[#202D36] ${darkMode?"text-white bg-[#2B3743]":"text-black bg-[#f5f5f5]"}`}>
             <Navbar></Navbar>
             <div className='w-full flex items-center ps-28 h-[200px]'>
-            <Link to={`/Home/`}><button className={`btn mt-5  hover:text-black text-xl t w-[150px] ${darkMode?"text-white bg-[#2B3743]":"text-black bg-white"}`}>Back</button></Link>
+            <Link to={`/Pays/`}><button className={`btn mt-5  hover:text-black text-xl t w-[150px] ${darkMode?"text-white bg-[#2B3743]":"text-black bg-white"}`}>Back</button></Link>
             </div>
             <div className='w-full h-[35rem] flex'>
                 <div className='h-full w-1/2 flex justify-center items-center'>

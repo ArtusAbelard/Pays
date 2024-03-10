@@ -19,7 +19,6 @@ const ThemeProvider = ( { children }) =>{
         setrecord(data);        
         });       }, []);     
                  
-     
      return (                  
     <ThemeContext.Provider value={{data,darkMode,setdarkMode,record,setrecord,filterbtn, setfilterbtn}} >             
         {children}          

@@ -7,25 +7,18 @@ import { MyContext } from './Body';
 import { ThemeContext } from '../../DataContext'
 import { Link } from 'react-router-dom';
 
-
 export default function Details(props) {
 
     const {id} = useParams()
     const {data,darkMode} = useContext(ThemeContext)
     const curencies = Object.values(data[id].currencies)
     const native = Object.values(data[id].name.nativeName)
-    // const [idBorders, setidBorders] = useState([])
-   
-    let nextId = 0;
     let idBorders = []
-    
-    
     
     function cible(params) {
         for (let index = 0; index < data.length; index++) {
             for (let i = 0; i < data[id].borders.length; i++) {
                 if (data[index].fifa==data[id].borders[i]) {
-                    
                     //     setidBorders([
                     //         ...idBorders,
                     //         {id: data[id].borders[i]++,name:index}
@@ -38,7 +31,6 @@ export default function Details(props) {
     if (data[id].borders) {
         cible()   
     }
-
     return (
         <div className={`w-screen h-screen overflow-hidden bg-[#202D36] ${darkMode?"text-white bg-[#2B3743]":"text-black bg-[#f5f5f5]"}`}>
             <Navbar></Navbar>
@@ -94,13 +86,4 @@ export default function Details(props) {
         </div>
     )   
 }
-
-// {
-//     data[id].borders.map((Element,Index)=>{
-        
-//         return(
-//             <button key={Index} className={`btn h-[35px] min-h-0 w-[120px] ${darkMode?"text-white bg-[#2B3743] hover:text-black":"text-black bg-white "}`}>{Element}</button>
-//         )
-//     })
-// }
 

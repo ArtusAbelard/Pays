@@ -7,9 +7,7 @@ import {
 import "./index.css";
 import Body from './assets/Compoments/Body'
 import Details from "./assets/Compoments/Details";
-import { useState, useEffect } from "react";
 import { ThemeProvider } from "./DataContext" 
-
 
 const router = createBrowserRouter([
   

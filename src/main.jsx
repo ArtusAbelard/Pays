@@ -8,6 +8,7 @@ import "./index.css";
 import Body from './assets/Compoments/Body'
 import Details from "./assets/Compoments/Details";
 import { ThemeProvider } from "./DataContext" 
+import './App.css'
 
 const router = createBrowserRouter([
   

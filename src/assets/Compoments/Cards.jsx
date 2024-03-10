@@ -9,20 +9,37 @@ import { ThemeContext } from '../../DataContext';
 export default function Cards(props) {
     
     const [data,shear]=useContext(MyContext)
-    const {darkMode,setdarkMode,record,setrecord} = useContext(ThemeContext)
+    const {darkMode,record,setrecord,filterbtn, setfilterbtn} = useContext(ThemeContext)
     // const [record, setrecord] = useState(data)
-    console.log(shear);
+    // console.log(shear);
     useEffect(() => {
-        console.log(record);
+        // console.log(record);
         // setrecord(data)
         Filter()
         
-        console.log(data);
+        
+        // console.log(data);
     }, [shear])
+    useEffect(() => {
+        // console.log(record);
+        // setrecord(data)
+        Filterbtn()
+        
+        
+        // console.log(data);
+    }, [filterbtn])
     
     const Filter = (event) => {
         setrecord(data.filter(f => f.name.common.toLowerCase().includes(shear) ))
+        
     }
+    const Filterbtn = (event) => {
+        
+        setrecord(data.filter((data) => data.region.toLowerCase()==filterbtn))
+    }
+    // console.log(data[1].region);
+    console.log(filterbtn);
+    
 
     // function ciblage(params) {
     //     for (let index = 0; index < data.length; index++) {

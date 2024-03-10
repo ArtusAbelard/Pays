@@ -7,7 +7,8 @@ import { ThemeContext } from '../../DataContext';
 export default function Header(props) {
     
     const [data,shear,setshear]=useContext(MyContext)
-    const {darkMode,setdarkMode} = useContext(ThemeContext)
+    const {darkMode,setdarkMode,filterbtn, setfilterbtn} = useContext(ThemeContext)
+    // console.log(filterbtn);
     
     
     return (
@@ -19,11 +20,11 @@ export default function Header(props) {
                     <div className="dropdown ">
                         <div tabIndex={0} role="button" className={`btn ps-5 m-1 h-[4rem] text-lg w-[16rem]  hover:text-black  ${darkMode?"text-white bg-[#2B3743]":"text-black bg-white"}`}>Filter by Region</div>
                             <ul tabIndex={0} className={` w-[16.5rem] dropdown-content z-[1] menu p-2 shadow  rounded-box ${darkMode?"text-white bg-[#2B3743]":"text-black bg-white"}`}>
-                                <li><a>Africa</a></li>
-                                <li><a>America</a></li>
-                                <li><a>Asia</a></li>
-                                <li><a>Europe</a></li>
-                                <li><a>Oceania</a></li>
+                                <li><a onClick={()=>{setfilterbtn("africa")}}>Africa</a></li>
+                                <li><a onClick={()=>{setfilterbtn("americas")}}>Americas</a></li>
+                                <li><a onClick={()=>{setfilterbtn("asia")}}>Asia</a></li>
+                                <li><a onClick={()=>{setfilterbtn("europe")}}>Europe</a></li>
+                                <li><a onClick={()=>{setfilterbtn("oceania")}}>Oceania</a></li>
                             </ul>
                     </div>
                 </div>

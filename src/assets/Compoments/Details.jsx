@@ -11,13 +11,15 @@ import { Link } from 'react-router-dom';
 export default function Details(props) {
 
     const {id} = useParams()
-    const {data,darkMode,setdarkMode} = useContext(ThemeContext)
+    const {data,darkMode} = useContext(ThemeContext)
     const curencies = Object.values(data[id].currencies)
     const native = Object.values(data[id].name.nativeName)
     // const [idBorders, setidBorders] = useState([])
    
     let nextId = 0;
     let idBorders = []
+    
+    
     
     function cible(params) {
         for (let index = 0; index < data.length; index++) {
